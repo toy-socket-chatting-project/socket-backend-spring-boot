@@ -1,0 +1,9 @@
+spring:
+  profiles.active: test
+  jpa:
+    hibernate:
+      dialect: org.hibernate.dialect.MySQL8InnoDBDialect
+      ddl-auto: validate
+  lifecycle.timeout-per-shutdown-phase: 20s
+
+server.shutdown: graceful # 동작하지 않음, 확인 필요.

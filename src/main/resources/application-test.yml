@@ -1,0 +1,30 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb;MODE=MySQL;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+  h2.console.enabled: true
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    database-platform: org.hibernate.dialect.H2Dialect
+  devtools:
+    livereload.enabled: true # 프론트 자원 라이브로드
+
+# swagger doc
+spring-doc:
+  version: v0.0.1
+  title: "Socket Messenger"
+  description: "스프링부트 소켓통신 프로젝트"
+  packages-to-scan: com.socket.messenger
+  swagger-ui:
+    path: /apidocs
+    tags-sorter: alpha
+  api-docs:
+    path: /api-docs/json
+    groups.enabled: true
+  cache.disabled: true
+  default-consumes-media-type: application/json;charset=UTF-8
+  default-produces-media-type: application/json;charset=UTF-8
+
