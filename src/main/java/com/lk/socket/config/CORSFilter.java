@@ -19,8 +19,7 @@ public class CORSFilter implements Filter {
         var httpServletRequest = (HttpServletRequest) request;
         var httpservletResponse = (HttpServletResponse) response;
 
-//        httpservletResponse.setHeader(HttpHeaders.ACCESS_CONTROL_ALLOW_ORIGIN, "http://192.168.219.128:3000");
-        httpservletResponse.setHeader(HttpHeaders.ACCESS_CONTROL_ALLOW_ORIGIN, "http://192.168.1.15:3000"); // KDY 집
+        httpservletResponse.setHeader(HttpHeaders.ACCESS_CONTROL_ALLOW_ORIGIN, "http://front.socket.com:3000");
         httpservletResponse.setHeader(HttpHeaders.ACCESS_CONTROL_ALLOW_HEADERS,
                 "Origin, X-Requested-With, Content-Type, Accept, Authorization");
         httpservletResponse.setHeader(HttpHeaders.ACCESS_CONTROL_ALLOW_CREDENTIALS, "true");

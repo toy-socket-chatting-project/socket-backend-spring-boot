@@ -15,8 +15,7 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {
         registry.addEndpoint(PREFIX_URI)
-//                .setAllowedOrigins("http://192.168.219.128:3000")
-                .setAllowedOrigins("http://192.168.1.15:3000") // KDY 집
+                .setAllowedOrigins("http://front.socket.com:3000")
                 .withSockJS();
     }
 
