@@ -33,6 +33,9 @@
 - io.spring.dependency-management 에 의해 스프링 관련 디펜던시가 일괄 관리되기 때문에 위 디펜던시 버전은 변경하지 않습니다.
 - [JUnit4 -> JUnit5 메소드 변경점 참고 블로그](https://theheydaze.tistory.com/218)
 
+## 4. ERD CLOUD
+- [ERD CLOUD 바로가기](https://www.erdcloud.com/d/6Jyy2YQDEpAqkMYcx)
+
 ## 99. 참고
 ### 1. 커밋 컨벤션
 1. 커밋 종류   
