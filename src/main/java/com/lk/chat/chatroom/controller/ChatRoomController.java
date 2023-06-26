@@ -2,6 +2,7 @@ package com.lk.chat.chatroom.controller;
 
 import com.lk.chat.chatroom.dto.ChatRoomDto;
 import com.lk.chat.chatroom.service.ChatRoomService;
+import com.lk.chat.dto.ApiResult;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -16,6 +17,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+
+import static com.lk.chat.dto.ApiResult.ok;
+
 
 @Tag(name = "ChatRoomController", description = "채팅방 컨트롤러")
 @Log4j2
@@ -33,8 +37,8 @@ public class ChatRoomController {
     })
     @Operation(summary = "findAll rooms", description = "채팅방 전체조회")
     @GetMapping(value = "/rooms")
-    public List<ChatRoomDto> rooms() {
-        return chatRoomService.findAll();
+    public ApiResult<List<ChatRoomDto>> rooms() {
+        return ok(chatRoomService.findAll());
     }
 
     //채팅방 개설
