@@ -18,7 +18,7 @@ spring-doc:
   version: v0.0.1
   title: "Socket Chatting Backend"
   description: "스프링부트 소켓통신 프로젝트"
-  packages-to-scan: com.lk.socket
+  packages-to-scan: com.lk.chat
   swagger-ui:
     path: /apidocs
     tags-sorter: alpha
