@@ -22,7 +22,8 @@ public class ChatRoomController {
     //채팅방 목록 조회
     @GetMapping(value = "/rooms")
     public List<ChatRoomDto> rooms() {
-        return chatRoomService.findAllRooms();
+//        return chatRoomService.findAllRooms();
+        return chatRoomService.findAll();
     }
 
     //채팅방 개설

@@ -9,15 +9,13 @@ spring:
     hibernate:
       ddl-auto: create-drop
     database-platform: org.hibernate.dialect.H2Dialect
-  devtools:
-    livereload.enabled: true # 프론트 자원 라이브로드
 
 # swagger doc
 spring-doc:
   version: v0.0.1
-  title: "Socket Messenger"
+  title: "Socket Chatting Backend"
   description: "스프링부트 소켓통신 프로젝트"
-  packages-to-scan: com.socket.messenger
+  packages-to-scan: com.lk.socket
   swagger-ui:
     path: /apidocs
     tags-sorter: alpha

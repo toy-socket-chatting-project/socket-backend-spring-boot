@@ -1,5 +1,6 @@
 package com.lk.socket.chatroom.dto;
 
+import com.lk.socket.chatroom.repository.ChatRoom;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AccessLevel;
 import lombok.Builder;
@@ -32,4 +33,10 @@ public class ChatRoomDto {
         room.name = name;
         return room;
     }
+
+    public ChatRoomDto(ChatRoom chatRoom) {
+        this.roomId = chatRoom.getRoomId();
+        this.name = chatRoom.getRoomName();
+    }
+
 }
