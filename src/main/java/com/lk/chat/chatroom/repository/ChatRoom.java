@@ -1,6 +1,8 @@
 package com.lk.chat.chatroom.repository;
 
 import com.lk.chat.repository.ChatBaseEntity;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.Comment;
@@ -11,6 +13,8 @@ import javax.validation.constraints.NotBlank;
 
 @Getter
 @NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Entity
 @Table(indexes = {
         @Index(name = "idx_room_id", columnList = "roomId", unique = true),

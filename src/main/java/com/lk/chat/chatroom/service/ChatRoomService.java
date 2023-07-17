@@ -1,6 +1,7 @@
 package com.lk.chat.chatroom.service;
 
 import com.lk.chat.chatroom.dto.ChatRoomDto;
+import com.lk.chat.chatroom.repository.ChatRoom;
 import com.lk.chat.chatroom.repository.ChatRoomRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -31,4 +32,8 @@ public class ChatRoomService {
                 .collect(Collectors.toList());
     }
 
+    public ChatRoom saveChatRoom(String name){
+        ChatRoom chatRoom = ChatRoom.builder().roomName("123123").roomId(name).build();
+        return chatRoomRepository.save(chatRoom);
+    }
 }
