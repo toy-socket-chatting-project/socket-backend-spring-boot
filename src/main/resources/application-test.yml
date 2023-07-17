@@ -1,23 +1,24 @@
 spring:
   datasource:
-    url: jdbc:h2:mem:testdb;MODE=MySQL;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
-    username: sa
-    password:
-    driver-class-name: org.h2.Driver
+    hikari:
+      driver-class-name: org.h2.Driver
+      jdbc-url: jdbc:h2:tcp://backend.socket.com:8081/../chatting-db
+#      jdbc-url: jdbc:h2:../chatting-db
+#    url: jdbc:h2:../chatting-db;MODE=MySQL;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+      username: sa
+      password:
   h2.console.enabled: true
   jpa:
     hibernate:
       ddl-auto: create-drop
     database-platform: org.hibernate.dialect.H2Dialect
-  devtools:
-    livereload.enabled: true # 프론트 자원 라이브로드
 
 # swagger doc
 spring-doc:
   version: v0.0.1
-  title: "Socket Messenger"
+  title: "Socket Chatting Backend"
   description: "스프링부트 소켓통신 프로젝트"
-  packages-to-scan: com.socket.messenger
+  packages-to-scan: com.lk.chat
   swagger-ui:
     path: /apidocs
     tags-sorter: alpha
