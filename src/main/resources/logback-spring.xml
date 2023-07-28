@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <property name="LOGS" value="./logs" />
+
+    <appender name="Console"
+              class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <Pattern>
+                %gray(%d{ISO8601}) %highlight(%-5level) [%blue(%t)] %yellow(%C{1.}): %msg%n%throwable
+            </Pattern>
+        </layout>
+    </appender>
+
+    <appender name="rollingFile"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOGS}/spring-boot-logger.log</file>
+        <encoder
+                class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <Pattern>%d %p %C{1.} [%t] %m%n</Pattern>
+        </encoder>
+
+        <rollingPolicy
+                class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- rollover daily and when the file reaches 10 MegaBytes -->
+            <fileNamePattern>${LOGS}/archived/spring-boot-logger-%d{yyyy-MM-dd}.%i.log.gz
+            </fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy
+                    class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>10MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+    </appender>
+
+    <!-- base package debug 설정 -->
+    <logger name="com.dykim.base" level="debug" additivity="false">
+        <appender-ref ref="rollingFile" />
+        <appender-ref ref="Console" />
+    </logger>
+
+    <!-- 샘플 로깅 패키지 trace 레벨 설정 -->
+    <logger name="com.dykim.base.sample.logging" level="trace" additivity="false">
+        <appender-ref ref="rollingFile" />
+        <appender-ref ref="Console" />
+    </logger>
+
+    <!-- springframework -->
+    <logger name="org.springframework.boot.StartupInfoLogger" level="info" additivity="false">
+        <appender-ref ref="Console" />
+    </logger>
+    <logger name="org.springframework.beans" level="error" additivity="false">
+        <appender-ref ref="Console" />
+    </logger>
+    <logger name="org.springframework" level="info" additivity="false">
+        <!-- AutoConfiguration 결과도 포함됨 -->
+        <appender-ref ref="rollingFile" />
+    </logger>
+
+    <!-- hibernate -->
+    <!-- SQL 로깅 -->
+    <logger name="org.hibernate.SQL" level="debug" additivity="false">
+        <appender-ref ref="Console" />
+        <appender-ref ref="rollingFile" />
+    </logger>
+    <!-- 바인딩된 SQL문 로깅 Hibernate 4,5 전용 -->
+    <logger name="org.hibernate.type.descriptor.sql" level="trace" additivity="false">
+        <appender-ref ref="Console" />
+        <appender-ref ref="rollingFile" />
+    </logger>
+    <!-- 바인딩된 SQL문 로깅 Hibernate 6 전용 -->
+<!--    <logger name="org.hibernate.orm.jdbc.bind" level="debug" additivity="false">-->
+<!--        <appender-ref ref="Console" />-->
+<!--    </logger>-->
+    <!-- DDL 쿼리 로깅 -->
+    <logger name="org.hibernate.tool.hbm2ddl" level="debug" additivity="false">
+        <appender-ref ref="Console" />
+        <appender-ref ref="rollingFile" />
+    </logger>
+    <!-- Slow Query 분석 Hibernate 5.4.5 이상 -->
+    <logger name="org.hibernate.SQL_SLOW" level="info" additivity="false">
+        <appender-ref ref="Console" />
+        <appender-ref ref="rollingFile" />
+    </logger>
+    <!-- 모든 쿼리의 분석 통계 -->
+    <logger name="org.hibernate.stat" level="debug" additivity="false">
+        <appender-ref ref="Console" />
+        <appender-ref ref="rollingFile" />
+    </logger>
+
+    <!-- etc -->
+    <!-- HikariPool 모니터링 로그 -->
+    <logger name="com.zaxxer.hikari.pool.HikariPool" level="debug" additivity="false">
+        <appender-ref ref="rollingFile" />
+    </logger>
+
+</configuration>
