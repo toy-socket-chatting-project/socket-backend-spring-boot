@@ -39,4 +39,10 @@ public class ChatBaseEntity {
     @Column(nullable = false, updatable = false)
     private Timestamp modTs;
 
+    @Comment("사용여부")
+    @Column(nullable = false)
+    public String useYn;
+
+
+
 }

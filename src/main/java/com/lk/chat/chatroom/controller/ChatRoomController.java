@@ -1,6 +1,7 @@
 package com.lk.chat.chatroom.controller;
 
 import com.lk.chat.chatroom.dto.ChatRoomDto;
+import com.lk.chat.chatroom.repository.ChatRoom;
 import com.lk.chat.chatroom.service.ChatRoomService;
 import com.lk.chat.dto.ApiResult;
 import com.lk.chat.dto.ResListDto;
@@ -12,10 +13,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -41,11 +39,17 @@ public class ChatRoomController {
     }
 
     //채팅방 개설
-    @GetMapping(value = "/saveChatRoom")
-    public void create(@RequestParam String name) {
-        log.info("# Create Chat Room , name: " + name);
-        chatRoomService.saveChatRoom(name);
+    @PostMapping(value = "/saveChatRoom")
+    public void create(@RequestBody ChatRoomDto chatRoomDto) {
+        log.info("# Create Chat Room , name: " + chatRoomDto);
+        chatRoomService.saveChatRoom(chatRoomDto);
     }
+
+    @PostMapping(value = "/deleteChatRoom")
+    public void delete(@RequestBody ChatRoomDto chatRoomDto){
+        chatRoomService.deleteChatRoom(chatRoomDto);
+    }
+
 
 //    //채팅방 조회
 //    @GetMapping("/room")
