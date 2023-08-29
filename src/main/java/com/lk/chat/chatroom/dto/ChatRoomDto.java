@@ -16,27 +16,13 @@ import java.util.UUID;
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class ChatRoomDto {
-    private String roomId;
     private String name;
-    private Set<WebSocketSession> sessions;
-
-    @Builder
-    public ChatRoomDto(String roomId, String name) {
-        this.roomId = roomId;
-        this.name = name;
-        sessions = new HashSet<>();
-    }
-
-    public static ChatRoomDto create(String name) {
-        ChatRoomDto room = new ChatRoomDto();
-        room.roomId = UUID.randomUUID().toString();
-        room.name = name;
-        return room;
-    }
 
     public ChatRoomDto(ChatRoom chatRoom) {
-        this.roomId = chatRoom.getRoomId();
         this.name = chatRoom.getRoomName();
     }
 
+    public ChatRoom toEntity(){
+        return ChatRoom.builder().roomName(name).build();
+    }
 }

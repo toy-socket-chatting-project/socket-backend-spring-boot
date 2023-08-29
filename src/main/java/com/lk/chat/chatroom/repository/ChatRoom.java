@@ -12,12 +12,9 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
 @Getter
-@NoArgsConstructor
 @AllArgsConstructor
-@Builder
 @Entity
 @Table(indexes = {
-        @Index(name = "idx_room_id", columnList = "roomId", unique = true),
         @Index(name = "idx_room_name", columnList = "roomName")
 })
 public class ChatRoom extends ChatBaseEntity {
@@ -27,16 +24,19 @@ public class ChatRoom extends ChatBaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long seq;
 
-    @Comment("방ID")
-    @NotBlank
-    @Length(max = 10)
-    @Column(nullable = false, length = 10)
-    private String roomId;
-
     @Comment("방이름")
     @NotBlank
     @Length(max = 50)
     @Column(nullable = false, length = 50)
     private String roomName;
 
+    @Builder
+    public ChatRoom(String roomName){
+        this.roomName = roomName;
+        this.useYn = "Y";
+    }
+    public ChatRoom delete(){
+        useYn = "N";
+        return this;
+    }
 }

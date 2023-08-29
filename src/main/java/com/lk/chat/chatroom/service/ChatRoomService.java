@@ -32,8 +32,11 @@ public class ChatRoomService {
                 .collect(Collectors.toList());
     }
 
-    public ChatRoom saveChatRoom(String name){
-        ChatRoom chatRoom = ChatRoom.builder().roomName("123123").roomId(name).build();
-        return chatRoomRepository.save(chatRoom);
+    public ChatRoom saveChatRoom(ChatRoomDto chatRoomDto){
+        return chatRoomRepository.save(chatRoomDto.toEntity());
+    }
+
+    public ChatRoom deleteChatRoom(ChatRoomDto chatRoomDto) {
+        return chatRoomRepository.save(chatRoomDto.toEntity().delete());
     }
 }
