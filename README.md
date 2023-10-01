@@ -36,6 +36,24 @@
 ## 4. ERD CLOUD
 - [ERD CLOUD 바로가기](https://www.erdcloud.com/d/6Jyy2YQDEpAqkMYcx)
 
+## 5. 코드 포맷팅 - google java format
+- 일관된 코드 스타일을 유지할 수 있도록 google java format 플러그인 사용
+- 설치방법 - IntelliJ 기준
+  1. plugins > google java format 설치
+  2. help > Edit Custom VM Options 에 아래 설정 추가 후 재시작
+     ```text
+     --add-exports=jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED
+     --add-exports=jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED
+     --add-exports=jdk.compiler/com.sun.tools.javac.file=ALL-UNNAMED
+     --add-exports=jdk.compiler/com.sun.tools.javac.parser=ALL-UNNAMED
+     --add-exports=jdk.compiler/com.sun.tools.javac.tree=ALL-UNNAMED
+     --add-exports=jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED
+     ```
+     참고) [Intellij plugin 설치 후 VM Options 추가 가이드](https://github.com/google/google-java-format/blob/master/README.md#intellij-jre-config)
+  3. [Optional]코드 수정 시 자동 포맷팅 되도록 설정
+     * `cmd + option + L` 로 직접 포맷팅할 수 있으나 깜빡하고 포맷팅하지 않는 경우를 대비하여 자동 포맷팅을 권장함.
+     * ![자동 포맷팅 설정 캡쳐](https://github.com/toy-socket-chatting-project/socket-backend-spring-boot/assets/43669379/d1cbb134-9a6e-489d-9b61-cbd7f6705baf)
+
 ## 99. 참고
 ### 1. 커밋 컨벤션
 1. 커밋 종류   
