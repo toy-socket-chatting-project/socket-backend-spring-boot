@@ -1,7 +1,5 @@
 package com.lk.chat.chatting.util;
 
-
-import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.awt.image.PixelGrabber;
@@ -10,6 +8,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;
+import javax.imageio.ImageIO;
 
 public class ImageUtil {
 
@@ -26,15 +25,15 @@ public class ImageUtil {
 
     public static BufferedImage resize(BufferedImage buffer, int width, int height) {
         Image image = buffer.getScaledInstance(width, height, Image.SCALE_SMOOTH);
-        int[] pixels = new int[width+height];
-        PixelGrabber pg = new PixelGrabber(image,0,0,width,height,pixels,0,width);
+        int[] pixels = new int[width + height];
+        PixelGrabber pg = new PixelGrabber(image, 0, 0, width, height, pixels, 0, width);
         try {
             pg.grabPixels();
-        } catch (InterruptedException e){
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        BufferedImage outPutImage = new BufferedImage(width,height,BufferedImage.TYPE_INT_RGB);
-        outPutImage.setRGB(0,0,width,height,pixels,0,width);
+        BufferedImage outPutImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
+        outPutImage.setRGB(0, 0, width, height, pixels, 0, width);
         return outPutImage;
     }
 

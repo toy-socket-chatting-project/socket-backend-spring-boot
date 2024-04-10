@@ -1,9 +1,8 @@
 package com.lk.chat.chatting.dto;
 
 import io.swagger.v3.oas.annotations.media.Schema;
-import lombok.*;
-
 import java.util.List;
+import lombok.*;
 
 @Schema(name = "ReqReceiveDto", description = "메시지 요청 Dto")
 @Getter
@@ -20,5 +19,4 @@ public class ReqMessageDto {
 
     @Schema(description = "Base64 이미지 목록")
     private List<String> sendImgSrcList;
-
 }

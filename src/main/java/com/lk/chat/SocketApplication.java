@@ -11,5 +11,4 @@ public class SocketApplication {
     public static void main(String[] args) {
         SpringApplication.run(SocketApplication.class);
     }
-
 }

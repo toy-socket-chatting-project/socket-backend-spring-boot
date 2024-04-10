@@ -15,19 +15,21 @@ import org.springframework.stereotype.Controller;
 @Controller
 public class ChattingController {
 
-
     private final ChattingService chattingService;
 
     /**
+     *
+     *
      * <h3>메시지 전송</h3>
      *
-     * @param reqMessageDto  {@link ReqMessageDto 메시지 요청 Dto}
+     * @param reqMessageDto {@link ReqMessageDto 메시지 요청 Dto}
      * @param headerAccessor {@link SimpMessageHeaderAccessor Stomp 메시지 헤더}
      * @return {@link ResMessageDto 메시지 응답 Dto}
      */
     @MessageMapping("/socket/messenger/receive")
     @SendTo("/socket/messenger/send")
-    public ResMessageDto messageReceiveSend(@Payload ReqMessageDto reqMessageDto, SimpMessageHeaderAccessor headerAccessor) {
+    public ResMessageDto messageReceiveSend(
+            @Payload ReqMessageDto reqMessageDto, SimpMessageHeaderAccessor headerAccessor) {
         var simpSessionId = String.valueOf(headerAccessor.getHeader("simpSessionId"));
         return ResMessageDto.builder()
                 .responseTime(LocalDateTime.now().toString("yy.MM.dd HH:mm:ss.SSS"))
@@ -38,5 +40,4 @@ public class ChattingController {
                 .recvImgSrcList(chattingService.getResizeImgSrcList(reqMessageDto.getSendImgSrcList()))
                 .build();
     }
-
 }

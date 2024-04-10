@@ -1,9 +1,8 @@
 package com.lk.chat.chatting.repository;
 
-import org.springframework.stereotype.Repository;
-
 import java.util.HashMap;
 import java.util.Map;
+import org.springframework.stereotype.Repository;
 
 @Repository
 public class ChattingRepository {
@@ -21,5 +20,4 @@ public class ChattingRepository {
     public void putColor(String simpSessionId, String colorHexCode) {
         idColorMap.put(simpSessionId, colorHexCode);
     }
-
 }

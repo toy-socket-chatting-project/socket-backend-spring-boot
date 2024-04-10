@@ -13,17 +13,10 @@ public class ApiResult<T> {
     private final T data;
 
     public static <T> ApiResult<T> ok(T data) {
-        return new ApiResult<>(
-                data.getClass().getSimpleName(),
-                data
-        );
+        return new ApiResult<>(data.getClass().getSimpleName(), data);
     }
 
     public static ApiResult<String> error(Exception exception) {
-        return new ApiResult<>(
-                exception.getClass().getSimpleName(),
-                exception.getMessage()
-        );
+        return new ApiResult<>(exception.getClass().getSimpleName(), exception.getMessage());
     }
-
 }

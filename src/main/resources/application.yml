@@ -1,9 +1,26 @@
 spring:
-  profiles.active: test
+  profiles.active: internal
   jpa:
     hibernate:
       dialect: org.hibernate.dialect.MySQL8InnoDBDialect
       ddl-auto: validate
   lifecycle.timeout-per-shutdown-phase: 20s
+  output.ansi.enabled: always # 콘솔로그 색상 적용
+
+# swagger doc
+spring-doc:
+  version: v0.0.1
+  title: "Socket Chatting Backend"
+  description: "스프링부트 소켓통신 프로젝트"
+  packages-to-scan: com.lk.chat
+  swagger-ui:
+    path: /apidocs
+    tags-sorter: alpha
+  api-docs:
+    path: /api-docs/json
+    groups.enabled: true
+  cache.disabled: true
+  default-consumes-media-type: application/json;charset=UTF-8
+  default-produces-media-type: application/json;charset=UTF-8
 
 server.shutdown: graceful # 동작하지 않음, 확인 필요.

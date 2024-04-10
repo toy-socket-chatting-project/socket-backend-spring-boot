@@ -1,10 +1,8 @@
 package com.lk.chat.chatting.dto;
 
-
 import io.swagger.v3.oas.annotations.media.Schema;
-import lombok.*;
-
 import java.util.List;
+import lombok.*;
 
 @Schema(name = "ResReceiveDto", description = "메시지 응답 Dto")
 @Getter
@@ -30,5 +28,4 @@ public class ResMessageDto {
 
     @Schema(description = "전송자 Base64 이미지 목록")
     private List<String> recvImgSrcList;
-
 }
