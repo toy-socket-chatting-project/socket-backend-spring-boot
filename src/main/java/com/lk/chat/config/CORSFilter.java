@@ -24,7 +24,7 @@ public class CORSFilter implements Filter {
         httpservletResponse.setHeader(
                 HttpHeaders.ACCESS_CONTROL_ALLOW_HEADERS,
                 "Origin, X-Requested-With, Content-Type, Accept, Authorization");
-        httpservletResponse.setHeader(HttpHeaders.ACCESS_CONTROL_ALLOW_CREDENTIALS, "true");
+        httpservletResponse.setHeader(HttpHeaders.ACCESS_CONTROL_ALLOW_CREDENTIALS, "false");
         httpservletResponse.setHeader(HttpHeaders.ACCESS_CONTROL_ALLOW_METHODS, "*");
         httpservletResponse.setHeader(HttpHeaders.ALLOW, "GET,POST");
 
