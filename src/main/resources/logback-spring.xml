@@ -51,9 +51,10 @@
     <logger name="org.springframework.beans" level="error" additivity="false">
         <appender-ref ref="Console" />
     </logger>
-    <logger name="org.springframework" level="info" additivity="false">
+    <logger name="org.springframework" level="debug" additivity="false">
         <!-- AutoConfiguration 결과도 포함됨 -->
-        <appender-ref ref="rollingFile" />
+        <appender-ref ref="Console" />
+<!--        <appender-ref ref="rollingFile" />-->
     </logger>
 
     <!-- hibernate -->
@@ -85,6 +86,9 @@
     <logger name="org.hibernate.stat" level="debug" additivity="false">
         <appender-ref ref="Console" />
         <appender-ref ref="rollingFile" />
+    </logger>
+    <logger name="org.hibernate" level="debug" additivity="false">
+        <appender-ref ref="Console" />
     </logger>
 
     <!-- etc -->

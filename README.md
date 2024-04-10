@@ -13,7 +13,7 @@
 ---
 ## 1. 환경구성
 - Spring Boot 2.7.0 / Gradle 8.0
-- Jdk 15
+- Jdk 11
 - JUnit5
 - Spring Data JPA(with. h2-MySQL8)
 
