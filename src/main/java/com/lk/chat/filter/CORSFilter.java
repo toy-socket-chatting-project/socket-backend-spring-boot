@@ -1,4 +1,4 @@
-package com.lk.chat.config;
+package com.lk.chat.filter;
 
 import java.io.IOException;
 import javax.servlet.*;
@@ -19,12 +19,12 @@ public class CORSFilter implements Filter {
         var httpServletRequest = (HttpServletRequest) request;
         var httpservletResponse = (HttpServletResponse) response;
 
-        httpservletResponse.setHeader(
-                HttpHeaders.ACCESS_CONTROL_ALLOW_ORIGIN, "*");
+        httpservletResponse.setHeader(HttpHeaders.ACCESS_CONTROL_ALLOW_ORIGIN, "*");
         httpservletResponse.setHeader(
                 HttpHeaders.ACCESS_CONTROL_ALLOW_HEADERS,
                 "Origin, X-Requested-With, Content-Type, Accept, Authorization");
-        httpservletResponse.setHeader(HttpHeaders.ACCESS_CONTROL_ALLOW_CREDENTIALS, "false");
+        httpservletResponse.setHeader(
+                HttpHeaders.ACCESS_CONTROL_ALLOW_CREDENTIALS, Boolean.FALSE.toString());
         httpservletResponse.setHeader(HttpHeaders.ACCESS_CONTROL_ALLOW_METHODS, "*");
         httpservletResponse.setHeader(HttpHeaders.ALLOW, "GET,POST");
 
