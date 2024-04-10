@@ -20,7 +20,7 @@ public class CORSFilter implements Filter {
         var httpservletResponse = (HttpServletResponse) response;
 
         httpservletResponse.setHeader(
-                HttpHeaders.ACCESS_CONTROL_ALLOW_ORIGIN, "http://front.socket.com:3000");
+                HttpHeaders.ACCESS_CONTROL_ALLOW_ORIGIN, "*");
         httpservletResponse.setHeader(
                 HttpHeaders.ACCESS_CONTROL_ALLOW_HEADERS,
                 "Origin, X-Requested-With, Content-Type, Accept, Authorization");
