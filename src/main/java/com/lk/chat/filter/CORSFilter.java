@@ -21,7 +21,7 @@ public class CORSFilter implements Filter {
 
         var requestOrigin = httpServletRequest.getHeader(HttpHeaders.ORIGIN);
 
-        httpservletResponse.setHeader(HttpHeaders.ACCESS_CONTROL_ALLOW_ORIGIN, "http://192.168.0.100:3000/");
+        httpservletResponse.setHeader(HttpHeaders.ACCESS_CONTROL_ALLOW_ORIGIN, requestOrigin);
         httpservletResponse.setHeader(
                 HttpHeaders.ACCESS_CONTROL_ALLOW_HEADERS,
                 "Origin, X-Requested-With, Content-Type, Accept, Authorization");
